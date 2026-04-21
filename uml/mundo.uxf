@@ -94,17 +94,16 @@ Venta
 -fecha: LocalDateTime
 -comprador: Usuario
 -valorNeto: double
--impuesto: double
 -valorTotal: double
 -puntosGenerados: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>368</x><y>904</y><w>224</w><h>96</h></coordinates><panel_attributes>VentaJuegos
 --
 _-IVA: double = 0.19_
--juegosComprados: ArrayList&lt;JuegoMesaVenta&gt;
--descuentoAplicado: double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>472</x><y>840</y><w>160</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;10;40;180;40;180;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>672</x><y>904</y><w>224</w><h>96</h></coordinates><panel_attributes>VentaCafeteria
+-juegosVendidos: ArrayList&lt;JuegoMesaVenta&gt;
+-descuento: double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>472</x><y>840</y><w>160</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;10;40;180;40;180;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>672</x><y>904</y><w>224</w><h>96</h></coordinates><panel_attributes>VentaCafeteria
 --
 _-IMPUESTO_CONSUMO: double = 0.08_
 -propina: double
--platillosPedidos: ArrayList&lt;Plato&gt;
+-platosPedidos: ArrayList&lt;Plato&gt;
 -mesa: Mesa</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>608</x><y>840</y><w>176</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>200;80;200;40;10;40;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2136</x><y>88</y><w>200</w><h>64</h></coordinates><panel_attributes>SugerenciaPlato
 --
 -plato: Plato</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1976</x><y>248</y><w>216</w><h>96</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
@@ -122,7 +121,7 @@ Solicitudes
 -historialPrestamos: ArrayList&lt;Prestamos&gt;
 -historialSolicitudes: ArrayList&lt;Solicitudes&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>2096</x><y>872</y><w>504</w><h>440</h></coordinates><panel_attributes>Platos
 --</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>0</x><y>0</y><w>1264</w><h>496</h></coordinates><panel_attributes>Usuarios
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1392</x><y>576</y><w>1024</w><h>256</h></coordinates><panel_attributes>Cafeteria
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1352</x><y>576</y><w>1064</w><h>256</h></coordinates><panel_attributes>Cafeteria
 --</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1536</x><y>24</y><w>816</w><h>448</h></coordinates><panel_attributes>Administracion
 --</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1704</x><y>736</y><w>120</w><h>24</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1360</x><y>736</y><w>256</w><h>504</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>300;610;10;610;10;10;80;10</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>224</x><y>656</y><w>896</w><h>400</h></coordinates><panel_attributes>ventas
 --</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1040</x><y>1208</y><w>168</w><h>152</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
