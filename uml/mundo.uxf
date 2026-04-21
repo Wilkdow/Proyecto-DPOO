@@ -29,15 +29,15 @@ JuegosMesa
 -nombre: String
 -anioPublicacion: int
 -empresaMatriz: String
--numeroJugadoresMin: int
--numeroJugadoresMax: int
--restriccionEdad: RestriccionEdad (enum)
--categoria: CategoriaJuego (enum)
+-minJugadores: int
+-maxJugadores: int
+-restriccionEdad: Edades(enum)
+-genero: Generos(enum)
 -estado: String
 -esDificil: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1288</x><y>1183</y><w>189</w><h>84</h></coordinates><panel_attributes>JuegosMesaVenta
 --
 -precio: int
--cantidadDisponible: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1533</x><y>1183</y><w>189</w><h>84</h></coordinates><panel_attributes>JuegosMesaPrestamos
+-stock: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1533</x><y>1183</y><w>189</w><h>84</h></coordinates><panel_attributes>JuegosMesaPrestamos
 --
 -vecesPrestado: int
 -disponible: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1372</x><y>1127</y><w>140</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;10;40;180;40;180;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1491</x><y>1127</y><w>105</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>130;80;130;40;10;40;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1309</x><y>847</y><w>147</w><h>84</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;

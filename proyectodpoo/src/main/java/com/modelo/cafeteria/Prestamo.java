@@ -29,7 +29,7 @@ public class Prestamo {
 
     public void prestarJuego(JuegoMesaPrestamo juego) throws Exception {
         if (juegosPrestados.size() >= 2) {
-            throw new JuegosPrestadosExcededidos(juegosPrestados.get(0).getNombreJuego(), juegosPrestados.get(1).getNombreJuego());
+            throw new JuegosPrestadosExcededidos(juegosPrestados.get(0).getNombre(), juegosPrestados.get(1).getNombre());
         }
         juego.prestar();
         juegosPrestados.add(juego);
