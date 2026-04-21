@@ -1,7 +1,6 @@
 package com.modelo.cafeteria;
 
-import com.modelo.Exceptions.MesaOcupada;
-import com.modelo.usuarios.Cliente;
+import com.modelo.exceptions.MesaOcupada;
 import com.modelo.usuarios.Usuario;
 
 public class Mesa {
@@ -19,15 +18,15 @@ public class Mesa {
         this.clienteAsignado = null;
     }
 
-    public void reservarMesa(Cliente cliente, int numeroPersonas, boolean hayNinios) throws MesaOcupada {
-        if (!estaOcupada) {
-            this.clienteAsignado = cliente;
-            this.numeroPersonas = numeroPersonas;
-            this.hayNinios = hayNinios;
-            this.estaOcupada = true;
-        } else {
+    public void reservarMesa(Usuario cliente, int numeroPersonas, boolean hayNinios) throws MesaOcupada {
+        if (estaOcupada) {
             throw new MesaOcupada(String.valueOf(numeroMesa));
         }
+
+        this.clienteAsignado = cliente;
+        this.numeroPersonas = numeroPersonas;
+        this.hayNinios = hayNinios;
+        this.estaOcupada = true;
     }
 
     public void liberarMesa() {
@@ -51,5 +50,9 @@ public class Mesa {
 
     public boolean estaOcupada() {
         return estaOcupada;
+    }
+
+    public Usuario getClienteAsignado() {
+        return clienteAsignado;
     }
 }

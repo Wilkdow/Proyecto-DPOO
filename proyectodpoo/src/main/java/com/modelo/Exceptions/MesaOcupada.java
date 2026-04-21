@@ -1,4 +1,4 @@
-package com.modelo.Exceptions;
+package com.modelo.exceptions;
 
 public class MesaOcupada extends Exception{
     private String numeroMesa;
