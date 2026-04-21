@@ -3,11 +3,11 @@ package com.modelo.administracion;
 import java.util.ArrayList;
 
 import com.modelo.enumerations.DiasSemana;
-import com.modelo.usuarios.Empleados;
+import com.modelo.usuarios.Empleado;
 
 public class Turno {
     private DiasSemana dia;
-    private ArrayList<Empleados> empleadosAsignados;
+    private ArrayList<Empleado> empleadosAsignados;
     private String horaInicio;
     private String horaFin;
 
@@ -18,11 +18,11 @@ public class Turno {
         this.empleadosAsignados = new ArrayList<>();
     }
 
-    public void asignarEmpleado(Empleados empleado) {
+    public void asignarEmpleado(Empleado empleado) {
         empleadosAsignados.add(empleado);
     }
 
-    public void removerEmpleado(Empleados empleado) {
+    public void removerEmpleado(Empleado empleado) {
         empleadosAsignados.remove(empleado);
     }
 

@@ -1,34 +1,31 @@
 package com.modelo.administracion;
 
 import com.modelo.usuarios.Administrador;
-import com.modelo.usuarios.Empleados;
-import com.modelo.usuarios.Usuarios;
+import com.modelo.usuarios.Empleado;
+import com.modelo.usuarios.Usuario;
 
-public class CambioTurno extends Solicitudes{
+public class CambioTurno extends Solicitud{
     private Turno turnoActual;
     private Turno turnoSolicitado;
-    private Empleados empleadoIntercambio;
+    private Empleado empleadoIntercambio;
 
-    public CambioTurno(Empleados empleadoSolicita, Turno turnoActual, Turno turnoSolicitado) {
+    public CambioTurno(Empleado empleadoSolicita, Turno turnoActual, Turno turnoSolicitado) {
         super(empleadoSolicita);
         this.turnoActual = turnoActual;
         this.turnoSolicitado = turnoSolicitado;
         this.empleadoIntercambio = null;
     }
 
-    public CambioTurno(Empleados empleadoSolicita, Turno turnoActual, Turno turnoSolicitado, Empleados empleadoIntercambio) {
+    public CambioTurno(Empleado empleadoSolicita, Turno turnoActual, Turno turnoSolicitado, Empleado empleadoIntercambio) {
         super(empleadoSolicita);
         this.turnoActual = turnoActual;
         this.turnoSolicitado = turnoSolicitado;
         this.empleadoIntercambio = empleadoIntercambio;
     }
 
-    public void aprobarSolicitud(Usuarios usuario) {
-        if (!usuario.getClass().equals(Administrador.class)) {
-            throw new IllegalArgumentException("Solo un administrador puede aprobar esta solicitud.");
-        }
-
-        super.revisarSolicitud();
+    @Override
+    public void aprobarSolicitud(Usuario usuario) {
+        super.aprobarSolicitud(usuario);
         if (empleadoIntercambio != null) {
             turnoActual.removerEmpleado(this.empleadoSolicita);
             turnoSolicitado.asignarEmpleado(this.empleadoSolicita);
@@ -41,10 +38,6 @@ public class CambioTurno extends Solicitudes{
         }
     }
 
-    public void rechazarSolicitud() {
-        super.revisarSolicitud();
-    }
-
     public Turno getTurnoActual() {
         return this.turnoActual;
     }
@@ -53,7 +46,7 @@ public class CambioTurno extends Solicitudes{
         return this.turnoSolicitado;
     }
 
-    public Empleados getEmpleadoIntercambio() {
+    public Empleado getEmpleadoIntercambio() {
         return this.empleadoIntercambio;
     }    
 }

@@ -3,17 +3,17 @@ package com.modelo.ventas;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-import com.modelo.juegosdemesa.JuegosMesaVenta;
-import com.modelo.usuarios.Usuarios;
+import com.modelo.juegosdemesa.JuegoMesaVenta;
+import com.modelo.usuarios.Usuario;
 
 public class VentaCafeteria extends Venta{
     private static final double IVA = 0.19;
-    private ArrayList<JuegosMesaVenta> juegosMesaVendidos;
+    private ArrayList<JuegoMesaVenta> juegosMesaVendidos;
     private double descuento;
 
-    private double calcularValorNeto(ArrayList<JuegosMesaVenta> juegosMesaVendidos) {
+    private double calcularValorNeto(ArrayList<JuegoMesaVenta> juegosMesaVendidos) {
         double valorNeto = 0.0;
-        for (JuegosMesaVenta juego : juegosMesaVendidos) {
+        for (JuegoMesaVenta juego : juegosMesaVendidos) {
             valorNeto += juego.getPrecio();
         }
         return valorNeto;
@@ -23,7 +23,7 @@ public class VentaCafeteria extends Venta{
         return valorNeto * (1 + IVA) * (1 - descuento);
     }
 
-    public VentaCafeteria(LocalDateTime fecha, Usuarios comprador, ArrayList<JuegosMesaVenta> juegosMesaVendidos, double descuento) {
+    public VentaCafeteria(LocalDateTime fecha, Usuario comprador, ArrayList<JuegoMesaVenta> juegosMesaVendidos, double descuento) {
         super(fecha, comprador);
         this.juegosMesaVendidos = juegosMesaVendidos;
         this.descuento = descuento;
@@ -32,7 +32,7 @@ public class VentaCafeteria extends Venta{
         this.valorTotal = calcularValorTotal(this.valorNeto);
     }
 
-    public ArrayList<JuegosMesaVenta> getJuegosMesaVendidos() {
+    public ArrayList<JuegoMesaVenta> getJuegosMesaVendidos() {
         return this.juegosMesaVendidos;
     }
 }

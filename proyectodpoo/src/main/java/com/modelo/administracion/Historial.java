@@ -8,7 +8,7 @@ import com.modelo.ventas.Venta;
 public class Historial {
     private ArrayList<Venta> historialVentas;
     private ArrayList<Prestamo> historialPrestamos;
-    private ArrayList<Solicitudes> historialSolicitudes;
+    private ArrayList<Solicitud> historialSolicitudes;
 
     public Historial() {
         this.historialVentas = new ArrayList<>();
@@ -24,7 +24,7 @@ public class Historial {
         this.historialPrestamos.add(prestamo);
     }
 
-    public void agregarSolicitud(Solicitudes solicitud) {
+    public void agregarSolicitud(Solicitud solicitud) {
         this.historialSolicitudes.add(solicitud);
     }
 }

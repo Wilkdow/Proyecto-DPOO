@@ -2,17 +2,17 @@ package com.modelo.ventas;
 
 import java.time.LocalDateTime;
 
-import com.modelo.usuarios.Usuarios;
+import com.modelo.usuarios.Usuario;
 
 public abstract class Venta {
     private int id;
     private LocalDateTime fecha;
-    private Usuarios comprador;
+    private Usuario comprador;
     protected double valorNeto;
     protected double valorTotal;
     protected double puntosGenerados;
 
-    public Venta(LocalDateTime fecha, Usuarios comprador) {
+    public Venta(LocalDateTime fecha, Usuario comprador) {
         this.fecha = fecha;
         this.comprador = comprador;
     }
@@ -25,7 +25,7 @@ public abstract class Venta {
         return this.fecha;
     }
 
-    public Usuarios getComprador() {
+    public Usuario getComprador() {
         return this.comprador;
     }
 

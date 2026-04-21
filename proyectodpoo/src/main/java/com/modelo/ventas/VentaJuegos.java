@@ -4,9 +4,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import com.modelo.cafeteria.Mesa;
-import com.modelo.juegosdemesa.JuegosMesaVenta;
+import com.modelo.juegosdemesa.JuegoMesaVenta;
 import com.modelo.platos.Plato;
-import com.modelo.usuarios.Usuarios;
+import com.modelo.usuarios.Usuario;
 
 public class VentaJuegos extends Venta{
     private static final double IMPUESTO_CONSUMO = 0.08;
@@ -26,7 +26,7 @@ public class VentaJuegos extends Venta{
         return valorNeto * (1 + IMPUESTO_CONSUMO) * (1 + propina);
     }
 
-    public VentaJuegos(LocalDateTime fecha, Usuarios comprador, ArrayList<Plato> platosPedidos, Mesa mesa, double propina) {
+    public VentaJuegos(LocalDateTime fecha, Usuario comprador, ArrayList<Plato> platosPedidos, Mesa mesa, double propina) {
         super(fecha, comprador);
         this.platosPedidos = platosPedidos;
         this.mesa = mesa;
