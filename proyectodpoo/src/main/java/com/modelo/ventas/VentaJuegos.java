@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import com.modelo.cafeteria.Mesa;
-import com.modelo.juegosdemesa.JuegoMesaVenta;
-import com.modelo.platos.Plato;
+import com.modelo.productos.JuegoMesaVenta;
+import com.modelo.productos.Plato;
 import com.modelo.usuarios.Usuario;
 
 public class VentaJuegos extends Venta{

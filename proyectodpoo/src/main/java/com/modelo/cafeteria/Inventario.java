@@ -3,8 +3,7 @@ package com.modelo.cafeteria;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.modelo.juegosdemesa.*;
-import com.modelo.platos.Plato;
+import com.modelo.productos.*;
 
 public class Inventario {
     private Map<String, JuegoMesaPrestamo> juegosMesaPrestamos;

@@ -3,7 +3,7 @@ package com.modelo.ventas;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-import com.modelo.juegosdemesa.JuegoMesaVenta;
+import com.modelo.productos.JuegoMesaVenta;
 import com.modelo.usuarios.Usuario;
 
 public class VentaCafeteria extends Venta{

@@ -1,7 +1,7 @@
 package com.modelo.administracion;
 
 import com.modelo.cafeteria.Inventario;
-import com.modelo.platos.Plato;
+import com.modelo.productos.Plato;
 import com.modelo.usuarios.Empleado;
 import com.modelo.usuarios.Usuario;
 

@@ -1,4 +1,4 @@
-package com.modelo.juegosdemesa;
+package com.modelo.productos;
 
 import com.modelo.enumerations.Edades;
 import com.modelo.enumerations.Generos;

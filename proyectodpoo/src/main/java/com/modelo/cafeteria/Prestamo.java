@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import com.modelo.exceptions.JuegosPrestadosExcededidos;
-import com.modelo.juegosdemesa.JuegoMesaPrestamo;
+import com.modelo.productos.JuegoMesaPrestamo;
 import com.modelo.usuarios.Usuario;
 
 public class Prestamo {
