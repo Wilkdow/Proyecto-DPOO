@@ -3,9 +3,9 @@ package com.modelo.administracion;
 import com.modelo.usuarios.Empleados;
 
 public abstract class Solicitudes {
-    Empleados empleadoSolicita;
-    boolean aprobada;
-    boolean revisada;
+    protected Empleados empleadoSolicita;
+    private boolean aprobada;
+    private boolean revisada;
 
     public Solicitudes(Empleados empleadoSolicita) {
         this.empleadoSolicita = empleadoSolicita;
@@ -17,11 +17,15 @@ public abstract class Solicitudes {
         this.revisada = true;
     }
 
-    public void aprobarSolicitud() throws Exception{
-        if (this.revisada) {
-            this.aprobada = true;
-        } else {
-            throw new Exception("La solicitud debe ser revisada antes de ser aprobada.");
-        }
+    public void aprobarSolicitud() {
+        this.aprobada = true;
+    }
+
+    public boolean fueRevisada() {
+        return this.revisada;
+    }
+
+    public boolean fueAprobada() {
+        return this.aprobada;
     }
 }

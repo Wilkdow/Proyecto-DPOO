@@ -6,10 +6,10 @@ import com.modelo.enumerations.DiasSemana;
 import com.modelo.usuarios.Empleados;
 
 public class Turno {
-    DiasSemana dia;
-    ArrayList<Empleados> empleadosAsignados;
-    String horaInicio;
-    String horaFin;
+    private DiasSemana dia;
+    private ArrayList<Empleados> empleadosAsignados;
+    private String horaInicio;
+    private String horaFin;
 
     public Turno(DiasSemana dia, String horaInicio, String horaFin) {
         this.dia = dia;
@@ -20,6 +20,10 @@ public class Turno {
 
     public void asignarEmpleado(Empleados empleado) {
         empleadosAsignados.add(empleado);
+    }
+
+    public void removerEmpleado(Empleados empleado) {
+        empleadosAsignados.remove(empleado);
     }
 
     public String getHoraInicio() {

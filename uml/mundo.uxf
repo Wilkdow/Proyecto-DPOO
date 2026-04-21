@@ -1,56 +1,56 @@
-<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>312</x><y>72</y><w>184</w><h>88</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>273</x><y>63</y><w>161</w><h>77</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
 Usuarios
 --
 -login: String
 -password: String
 -puntosFidelidad: int
--juegosFavoritos: ArrayList&lt;JuegoMesa&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>232</y><w>168</w><h>72</h></coordinates><panel_attributes>Clientes
+-juegosFavoritos: ArrayList&lt;JuegoMesa&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>35</x><y>203</y><w>147</w><h>63</h></coordinates><panel_attributes>Clientes
 --
 -nombre: String
 -correoElectronico: String
 -identificador: String
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>240</y><w>216</w><h>88</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>525</x><y>210</y><w>189</w><h>77</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
 Empleados
 --
 -nombre: String
 -correoElectronico: String
 -identificador: String
--juegosDificilesConoce: ArrayList&lt;JuegoMesa&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>528</x><y>368</y><w>168</w><h>72</h></coordinates><panel_attributes>Meseros
+-juegosDificilesConoce: ArrayList&lt;JuegoMesa&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>462</x><y>322</y><w>147</w><h>63</h></coordinates><panel_attributes>Meseros
 --
 -juegosDificiles: ArrayList&lt;JuegoMesa&gt;
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>728</x><y>368</y><w>152</w><h>72</h></coordinates><panel_attributes>Cocineros
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>637</x><y>322</y><w>133</w><h>63</h></coordinates><panel_attributes>Cocineros
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>312</x><y>256</y><w>168</w><h>72</h></coordinates><panel_attributes>Administrador
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>273</x><y>224</y><w>147</w><h>63</h></coordinates><panel_attributes>Administrador
 --
 -nombre: String
--identificador: String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>392</x><y>152</y><w>328</w><h>104</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>390;110;390;60;10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>112</x><y>192</y><w>304</w><h>56</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;50;10;10;360;10</additional_attributes></element><element><id>Relation</id><coordinates><x>392</x><y>152</y><w>24</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>600</x><y>320</y><w>112</w><h>64</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;60;10;30;120;30;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>688</x><y>320</y><w>136</w><h>64</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>150;60;150;30;10;30;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1600</x><y>1152</y><w>216</w><h>144</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
+-identificador: String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>343</x><y>133</y><w>287</w><h>91</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>390;110;390;60;10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>98</x><y>168</y><w>266</w><h>49</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;50;10;10;360;10</additional_attributes></element><element><id>Relation</id><coordinates><x>343</x><y>133</y><w>21</w><h>105</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>525</x><y>280</y><w>98</w><h>56</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;60;10;30;120;30;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>602</x><y>280</y><w>119</w><h>56</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>150;60;150;30;10;30;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1400</x><y>1008</y><w>189</w><h>126</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
 JuegosMesa
 --
 -nombre: String
--añoPublicacion: int
+-anioPublicacion: int
 -empresaMatriz: String
 -numeroJugadoresMin: int
 -numeroJugadoresMax: int
 -restriccionEdad: RestriccionEdad (enum)
 -categoria: CategoriaJuego (enum)
 -estado: String
--esDificil: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1472</x><y>1352</y><w>216</w><h>96</h></coordinates><panel_attributes>JuegosMesaVenta
+-esDificil: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1288</x><y>1183</y><w>189</w><h>84</h></coordinates><panel_attributes>JuegosMesaVenta
 --
 -precio: int
--cantidadDisponible: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1752</x><y>1352</y><w>216</w><h>96</h></coordinates><panel_attributes>JuegosMesaPrestamos
+-cantidadDisponible: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1533</x><y>1183</y><w>189</w><h>84</h></coordinates><panel_attributes>JuegosMesaPrestamos
 --
 -vecesPrestado: int
--disponible: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1568</x><y>1288</y><w>160</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;10;40;180;40;180;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1704</x><y>1288</y><w>120</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>130;80;130;40;10;40;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1496</x><y>968</y><w>168</w><h>96</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+-disponible: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1372</x><y>1127</y><w>140</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;10;40;180;40;180;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1491</x><y>1127</y><w>105</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>130;80;130;40;10;40;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1309</x><y>847</y><w>147</w><h>84</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
 Edades
 --
 ninios
 jovenes
-adultos</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1568</x><y>1056</y><w>160</w><h>112</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;70;180;70;180;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1768</x><y>976</y><w>168</w><h>88</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+adultos</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1372</x><y>924</y><w>140</w><h>98</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;70;180;70;180;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1547</x><y>854</y><w>147</w><h>77</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
 Generos
 --
 cartas
 tablero
-accion</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1704</x><y>1056</y><w>168</w><h>104</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>190;10;190;70;10;70;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1808</x><y>648</y><w>272</w><h>152</h></coordinates><panel_attributes>Prestamos
+accion</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1491</x><y>924</y><w>147</w><h>91</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>190;10;190;70;10;70;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1582</x><y>567</y><w>238</w><h>133</h></coordinates><panel_attributes>Prestamos
 --
 -id: int
 -fechaPrestamo: LocalDate
@@ -58,73 +58,73 @@ accion</panel_attributes><additional_attributes></additional_attributes></elemen
 -devuelto: boolean
 -juegosPrestados: ArrayList&lt;JuegoMesaPrestamo&gt;
 -prestatario: Usuario
--mesa: Mesa</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1440</x><y>880</y><w>592</w><h>640</h></coordinates><panel_attributes>JuegosDeMesa
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2192</x><y>672</y><w>192</w><h>104</h></coordinates><panel_attributes>Mesa
+-mesa: Mesa</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1260</x><y>770</y><w>518</w><h>560</h></coordinates><panel_attributes>JuegosDeMesa
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1918</x><y>588</y><w>168</w><h>91</h></coordinates><panel_attributes>Mesa
 --
 -numeroMesa: int
 -numeroPersonas: int
 -hayNinios: boolean
 -hayJovenes: boolean
--ocupada: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2256</x><y>960</y><w>192</w><h>104</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
+-ocupada: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1974</x><y>840</y><w>168</w><h>91</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
 Plato
 --
 -nombre: String
 -descripcion: String
--precio: double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2144</x><y>1160</y><w>168</w><h>72</h></coordinates><panel_attributes>Bebida
+-precio: double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1876</x><y>1015</y><w>147</w><h>63</h></coordinates><panel_attributes>Bebida
 --
 -esAlcoholica: boolean
 -esCaliente: boolean
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2392</x><y>1160</y><w>160</w><h>72</h></coordinates><panel_attributes>Pasteleria
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2093</x><y>1015</y><w>140</w><h>63</h></coordinates><panel_attributes>Pasteleria
 --
--alergenos: ArrayList&lt;String&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2224</x><y>1056</y><w>144</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;130;10;70;160;70;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>2344</x><y>1056</y><w>136</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>150;130;150;70;10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>2072</x><y>712</y><w>136</w><h>32</h></coordinates><panel_attributes>lt=&lt;-
+-alergenos: ArrayList&lt;String&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1946</x><y>924</y><w>126</w><h>105</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;130;10;70;160;70;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>2051</x><y>924</y><w>119</w><h>105</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>150;130;150;70;10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1813</x><y>623</y><w>119</w><h>28</h></coordinates><panel_attributes>lt=&lt;-
 m1=1
-m2=0..1</panel_attributes><additional_attributes>150;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1616</x><y>208</y><w>232</w><h>96</h></coordinates><panel_attributes>Turno
+m2=0..1</panel_attributes><additional_attributes>150;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1414</x><y>182</y><w>203</w><h>84</h></coordinates><panel_attributes>Turno
 --
 -diaSemana: DiaSemana (enum)
 -empleadosAsignados: ArrayList&lt;Empleado&gt;
 -horaInicio: String
--horaFin: String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1824</x><y>88</y><w>272</w><h>64</h></coordinates><panel_attributes>CambioTurno
+-horaFin: String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1596</x><y>77</y><w>238</w><h>56</h></coordinates><panel_attributes>CambioTurno
 --
 -turnoActual: Turno
--turnoDeseado: Turno
--empleadoIntercambio: Empleado</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>512</x><y>704</y><w>216</w><h>144</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
+-turnoSolicitado: Turno
+-empleadoIntercambio: Empleado</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>448</x><y>616</y><w>189</w><h>126</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
 Venta
 --
 -id: int
 -fecha: LocalDateTime
 -comprador: Usuario
--valorNeto: double
--valorTotal: double
--puntosGenerados: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>368</x><y>904</y><w>224</w><h>96</h></coordinates><panel_attributes>VentaJuegos
+#valorNeto: double
+#valorTotal: double
+#puntosGenerados: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>322</x><y>791</y><w>196</w><h>84</h></coordinates><panel_attributes>VentaJuegos
 --
 _-IVA: double = 0.19_
 -juegosVendidos: ArrayList&lt;JuegoMesaVenta&gt;
--descuento: double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>472</x><y>840</y><w>160</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;10;40;180;40;180;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>672</x><y>904</y><w>224</w><h>96</h></coordinates><panel_attributes>VentaCafeteria
+-descuento: double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>413</x><y>735</y><w>140</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;10;40;180;40;180;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>588</x><y>791</y><w>196</w><h>84</h></coordinates><panel_attributes>VentaCafeteria
 --
 _-IMPUESTO_CONSUMO: double = 0.08_
 -propina: double
 -platosPedidos: ArrayList&lt;Plato&gt;
--mesa: Mesa</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>608</x><y>840</y><w>176</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>200;80;200;40;10;40;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2136</x><y>88</y><w>200</w><h>64</h></coordinates><panel_attributes>SugerenciaPlato
+-mesa: Mesa</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>532</x><y>735</y><w>154</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>200;80;200;40;10;40;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1869</x><y>77</y><w>175</w><h>56</h></coordinates><panel_attributes>SugerenciaPlato
 --
--plato: Plato</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1976</x><y>248</y><w>216</w><h>96</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
+-platoSugerido: Plato</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1729</x><y>217</y><w>189</w><h>84</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
 Solicitudes
 --
--empleadoSolicita: Empleado
+#empleadoSolicita: Empleado
 -aprobada: boolean
--revisada: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1952</x><y>144</y><w>144</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70;160;70;160;130</additional_attributes></element><element><id>Relation</id><coordinates><x>2072</x><y>144</y><w>168</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>190;10;190;70;10;70;10;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1424</x><y>704</y><w>288</w><h>80</h></coordinates><panel_attributes>Inventario
+-revisada: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1708</x><y>126</y><w>126</w><h>105</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70;160;70;160;130</additional_attributes></element><element><id>Relation</id><coordinates><x>1813</x><y>126</y><w>147</w><h>105</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>190;10;190;70;10;70;10;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1246</x><y>616</y><w>252</w><h>70</h></coordinates><panel_attributes>Inventario
 --
 -juegosMesaPrestamos: ArrayList&lt;JuegosMesaPrestamos&gt;
 -juegosMesaVenta: ArrayList&lt;JuegosMesaVenta&gt;
--menu: ArrayList&lt;Plato&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1632</x><y>344</y><w>208</w><h>72</h></coordinates><panel_attributes>Historial
+-menu: ArrayList&lt;Plato&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1428</x><y>301</y><w>182</w><h>63</h></coordinates><panel_attributes>Historial
 --
 -historialVentas: ArrayList&lt;Venta&gt;
 -historialPrestamos: ArrayList&lt;Prestamos&gt;
--historialSolicitudes: ArrayList&lt;Solicitudes&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>2096</x><y>872</y><w>504</w><h>440</h></coordinates><panel_attributes>Platos
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>0</x><y>0</y><w>1264</w><h>496</h></coordinates><panel_attributes>Usuarios
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1352</x><y>576</y><w>1064</w><h>256</h></coordinates><panel_attributes>Cafeteria
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1536</x><y>24</y><w>816</w><h>448</h></coordinates><panel_attributes>Administracion
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1704</x><y>736</y><w>120</w><h>24</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1360</x><y>736</y><w>256</w><h>504</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>300;610;10;610;10;10;80;10</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>224</x><y>656</y><w>896</w><h>400</h></coordinates><panel_attributes>ventas
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1040</x><y>1208</y><w>168</w><h>152</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+-historialSolicitudes: ArrayList&lt;Solicitudes&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1834</x><y>763</y><w>441</w><h>385</h></coordinates><panel_attributes>Platos
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>0</x><y>0</y><w>1106</w><h>434</h></coordinates><panel_attributes>Usuarios
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1183</x><y>504</y><w>931</w><h>224</h></coordinates><panel_attributes>Cafeteria
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1344</x><y>21</y><w>714</w><h>392</h></coordinates><panel_attributes>Administracion
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1491</x><y>644</y><w>105</w><h>21</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1190</x><y>644</y><w>224</w><h>441</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>300;610;10;610;10;10;80;10</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>196</x><y>574</y><w>784</w><h>350</h></coordinates><panel_attributes>ventas
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>910</x><y>1057</y><w>147</w><h>133</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
 DiasSemana
 --
 LUNES
