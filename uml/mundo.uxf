@@ -14,8 +14,7 @@ Empleados
 --
 -nombre: String
 -correoElectronico: String
--identificador: String
--juegosDificilesConoce: ArrayList&lt;JuegoMesa&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>462</x><y>322</y><w>147</w><h>63</h></coordinates><panel_attributes>Meseros
+-identificador: String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>462</x><y>322</y><w>147</w><h>63</h></coordinates><panel_attributes>Meseros
 --
 -juegosDificiles: ArrayList&lt;JuegoMesa&gt;
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>637</x><y>322</y><w>133</w><h>63</h></coordinates><panel_attributes>Cocineros
