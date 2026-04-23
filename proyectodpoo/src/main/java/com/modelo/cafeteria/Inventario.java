@@ -17,10 +17,16 @@ public class Inventario {
     }
 
     public JuegoMesaPrestamo getJuegoMesaPrestamo(String nombre) {
+        if (!juegosMesaPrestamos.containsKey(nombre)) {
+            throw new IllegalArgumentException("No se encontró el juego de mesa para préstamo: " + nombre);
+        }
         return juegosMesaPrestamos.get(nombre);
     }
 
     public JuegoMesaVenta getJuegoMesaVenta(String nombre) {
+        if (!juegosMesaVenta.containsKey(nombre)) {
+            throw new IllegalArgumentException("No se encontró el juego de mesa para venta: " + nombre);
+        }
         return juegosMesaVenta.get(nombre);
     }
 

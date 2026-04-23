@@ -8,8 +8,6 @@ import com.modelo.productos.JuegoMesaPrestamo;
 import com.modelo.usuarios.Usuario;
 
 public class Prestamo {
-    
-    private int idPrestamo;
     private LocalDate fechaPrestamo;
     private LocalDate fechaDevolucion;
     private boolean devuelto;
@@ -17,8 +15,7 @@ public class Prestamo {
     private Usuario prestatario;
     private Mesa mesa;
 
-    public Prestamo(int idPrestamo, Usuario prestatario, Mesa mesa) {
-        this.idPrestamo = idPrestamo;
+    public Prestamo(Usuario prestatario, Mesa mesa) {
         this.fechaPrestamo = LocalDate.now();
         this.fechaDevolucion = null;
         this.devuelto = false;
@@ -46,5 +43,9 @@ public class Prestamo {
         }
         this.devuelto = true;
         this.fechaDevolucion = LocalDate.now();
+    }
+
+    public ArrayList<JuegoMesaPrestamo> getJuegosPrestados() {
+        return juegosPrestados;
     }
 }
