@@ -20,12 +20,14 @@ public abstract class Venta {
         return valorNeto * descuentoPorcentaje + descuentoPuntos;
     }
 
-    public Venta(LocalDateTime fecha, Usuario comprador, double descuentoPuntos) {
-        this.fecha = fecha;
+    public Venta(Usuario comprador, double descuentoPuntos) {
+        this.fecha = LocalDateTime.now();
         this.comprador = comprador;
         this.descuentoPuntos = descuentoPuntos;
         this.descuentoPorcentaje = (comprador.getClass() == Empleado.class) ? 0.2 : 0.0;
     }
+
+    public abstract void cerrarVenta();
 
     public int getId() {
         return this.id;

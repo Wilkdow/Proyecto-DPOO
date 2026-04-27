@@ -1,23 +1,23 @@
 package com.modelo.usuarios;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.modelo.administracion.Historial;
+import com.modelo.cafeteria.Inventario;
 import com.modelo.productos.JuegoMesa;
+import com.modelo.productos.JuegoMesaVenta;
+import com.modelo.ventas.VentaJuegos;
 
-public class UsuarioActivo extends Usuario{
-    private String nombre;
+public abstract class UsuarioActivo extends Usuario{
     private int puntosAcumulados;
     private Set<JuegoMesa> juegosFavoritos;
 
-    public UsuarioActivo(String login, String password) {
-        super(login, password);
+    public UsuarioActivo(String login, String password, Inventario inventario) {
+        super(login, password, inventario);
         this.puntosAcumulados = 0;
         this.juegosFavoritos = new HashSet<JuegoMesa>();
-    }
-
-    public String getNombre() {
-        return this.nombre;
     }
 
     public int getPuntosAcumulados() {

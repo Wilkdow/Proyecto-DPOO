@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import com.modelo.cafeteria.Mesa;
+import com.modelo.exceptions.ArticuloInvalido;
 import com.modelo.productos.JuegoMesaVenta;
 import com.modelo.productos.Plato;
 import com.modelo.usuarios.Usuario;
@@ -26,14 +27,18 @@ public class VentaCafeteria extends Venta{
         return calcularDescuentoTotal(valorNeto) * (1 + IMPUESTO_CONSUMO) + valorPropina ;
     }
 
-    public VentaCafeteria(LocalDateTime fecha, Usuario comprador, ArrayList<Plato> platosPedidos, double propina, double descuento) {
-        super(fecha, comprador, descuento);
-        this.platosPedidos = platosPedidos;
-        this.propina = propina;
+    public VentaCafeteria(Usuario comprador, double puntosUtilizados) {
+        super(comprador, puntosUtilizados);
+        this.platosPedidos = new ArrayList<>();
 
-        this.valorNeto = calcularValorNeto(platosPedidos);
-        this.valorTotal = calcularValorTotal(this.valorNeto);
-        this.puntosGenerados = this.valorTotal * 0.01;
+        this.valorNeto = 0.0;
+        this.valorTotal = 0.0;
+        this.puntosGenerados = 0.0;
+    }
+
+    public void ordenarPlato(Mesa mesa, Plato plato) throws ArticuloInvalido{
+        mesa.ordenarPlato(plato);
+        
     }
 
     public ArrayList<Plato> getPlatosPedidos() {

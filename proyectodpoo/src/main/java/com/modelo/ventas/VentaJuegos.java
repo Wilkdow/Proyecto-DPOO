@@ -11,25 +11,34 @@ public class VentaJuegos extends Venta{
     private static final double IVA = 0.19;
     private ArrayList<JuegoMesaVenta> juegosMesaVendidos;
 
-    private double calcularValorNeto(ArrayList<JuegoMesaVenta> juegosMesaVendidos) {
-        double valorNeto = 0.0;
-        for (JuegoMesaVenta juego : juegosMesaVendidos) {
-            valorNeto += juego.getPrecio();
-        }
-        return valorNeto;
-    }
-
     private double calcularValorTotal(double valorNeto) {
-        return calcularDescuentoTotal(valorNeto) * (1 + IVA);
+        return (valorNeto - calcularDescuentoTotal(valorNeto)) * (1 + IVA);
+    }
+    
+    public VentaJuegos(Usuario comprador, double puntosUtilizados, boolean tieneReferido) {
+        super(comprador, puntosUtilizados);
+        this.juegosMesaVendidos = new ArrayList<>();
+
+        this.valorNeto = 0.0;
+        this.valorTotal = 0.0;
+        this.descuentoPorcentaje = (tieneReferido) ? 0.1 : 0.0;
+        this.puntosGenerados = 0.0;
     }
 
-    public VentaJuegos(LocalDateTime fecha, Usuario comprador, ArrayList<JuegoMesaVenta> juegosMesaVendidos, double descuento, boolean tieneReferido) {
-        super(fecha, comprador, descuento);
-        this.juegosMesaVendidos = juegosMesaVendidos;
+    public void agregarJuegoMesaVenta(JuegoMesaVenta juego) {
+        this.juegosMesaVendidos.add(juego);
+        this.valorNeto += juego.getPrecio();
+    }
 
-        this.valorNeto = calcularValorNeto(juegosMesaVendidos);
+    public void eliminarJuegoMesaVenta(JuegoMesaVenta juego) {
+        if (!this.juegosMesaVendidos.contains(juego)) 
+            throw new IllegalArgumentException("El juego no está en la venta.");
+        this.juegosMesaVendidos.remove(juego);
+        this.valorNeto -= juego.getPrecio();
+    }
+
+    public void cerrarVenta() {
         this.valorTotal = calcularValorTotal(this.valorNeto);
-        this.descuentoPorcentaje = (tieneReferido) ? 0.1 : 0.0;
         this.puntosGenerados = this.valorTotal * 0.01;
     }
 
