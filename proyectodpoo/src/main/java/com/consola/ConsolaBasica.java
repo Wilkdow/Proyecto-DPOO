@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Iterator;
 
 public abstract class ConsolaBasica {
-    protected String pedirCadenaAlUsuario( String mensaje )
+    protected static String pedirCadenaAlUsuario( String mensaje )
     {
         try
         {
@@ -28,7 +28,7 @@ public abstract class ConsolaBasica {
      * @param mensaje El mensaje con el que se solicita la información
      * @return Retorna true únicamente si el usuario responde 'sí', 'si' o 'si', independientemente de las minúsculas y las mayúsculas. Retorna false en cualquier otro caso.
      */
-    protected boolean pedirConfirmacionAlUsuario( String mensaje )
+    protected static boolean pedirConfirmacionAlUsuario( String mensaje )
     {
         try
         {
@@ -53,7 +53,7 @@ public abstract class ConsolaBasica {
      * @param mensaje El mensaje con el que se solicita la información
      * @return El valor introducido por el usuario
      */
-    protected int pedirEnteroAlUsuario( String mensaje )
+    protected static int pedirEnteroAlUsuario( String mensaje )
     {
         int valorResultado = Integer.MIN_VALUE;
         while( valorResultado == Integer.MIN_VALUE )
@@ -83,7 +83,7 @@ public abstract class ConsolaBasica {
      * @param mensaje El mensaje con el que se solicita la información
      * @return El valor introducido por el usuario
      */
-    protected double pedirNumeroAlUsuario( String mensaje )
+    protected static double pedirNumeroAlUsuario( String mensaje )
     {
         double valorResultado = Integer.MIN_VALUE;
         while( valorResultado == Integer.MIN_VALUE )
@@ -113,7 +113,7 @@ public abstract class ConsolaBasica {
      * @param coleccionOpciones
      * @return Retorna la opción seleccionada (el valor, no su posición).
      */
-    protected String pedirOpcionAlUsuario( Collection<? extends Object> coleccionOpciones )
+    protected static String pedirOpcionAlUsuario( Collection<? extends Object> coleccionOpciones )
     {
         String[] opciones = new String[coleccionOpciones.size( )];
         int pos = 0;
@@ -153,7 +153,7 @@ public abstract class ConsolaBasica {
      * @param opciones Las opciones que se le presentan al usuario
      * @return El número de la opción seleccionada por el usuario, contando desde 1
      */
-    protected int mostrarMenu( String nombreMenu, String[] opciones )
+    protected static int mostrarMenu( String nombreMenu, String[] opciones )
     {
         System.out.println( "\n---------------------" );
         System.out.println( nombreMenu );

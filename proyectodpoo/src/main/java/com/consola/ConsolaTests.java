@@ -10,7 +10,7 @@ public class ConsolaTests {
     public void correrAplicacion() {
         inventario = new Inventario();
         sHandler = new SessionHandler(inventario);
-        
+        int opcion = ConsolaBasica.mostrarMenu("Bienvenido", new String[]{"Iniciar Sesión", "Registrarse"});
     }
 
     public static void main(String[] args) {
