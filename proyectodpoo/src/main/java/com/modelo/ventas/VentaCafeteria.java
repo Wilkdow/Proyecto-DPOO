@@ -38,7 +38,14 @@ public class VentaCafeteria extends Venta{
 
     public void ordenarPlato(Mesa mesa, Plato plato) throws ArticuloInvalido{
         mesa.ordenarPlato(plato);
-        
+        this.platosPedidos.add(plato);
+        this.valorNeto = calcularValorNeto(this.platosPedidos);
+        this.valorTotal = calcularValorTotal(this.valorNeto);
+    }
+
+    @Override
+    public void cerrarVenta() {
+        this.valorTotal = calcularValorTotal(this.valorNeto);
     }
 
     public ArrayList<Plato> getPlatosPedidos() {

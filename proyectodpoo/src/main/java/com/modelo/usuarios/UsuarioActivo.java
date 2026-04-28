@@ -20,6 +20,12 @@ public abstract class UsuarioActivo extends Usuario{
         this.juegosFavoritos = new HashSet<JuegoMesa>();
     }
 
+    public UsuarioActivo(String login, String password) {
+        super(login, password);
+        this.puntosAcumulados = 0;
+        this.juegosFavoritos = new HashSet<JuegoMesa>();
+    }
+
     public int getPuntosAcumulados() {
         return this.puntosAcumulados;
     }

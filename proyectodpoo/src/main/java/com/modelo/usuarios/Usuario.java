@@ -13,6 +13,10 @@ public abstract class Usuario {
         this.inventario = inventario;
     }
 
+    public Usuario(String login, String password) {
+        this(login, password, null);
+    }
+
     public String getLogin() {
         return this.login;
     }
