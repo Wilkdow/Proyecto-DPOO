@@ -15,5 +15,6 @@ public class ConsolaTests {
 
     public static void main(String[] args) {
         ConsolaTests consola = new ConsolaTests();
+        consola.correrAplicacion();
     }
 }

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import com.modelo.cafeteria.Mesa;
 import com.modelo.exceptions.ArticuloInvalido;
-import com.modelo.productos.JuegoMesaVenta;
 import com.modelo.productos.Plato;
 import com.modelo.usuarios.Usuario;
 
@@ -13,14 +12,6 @@ public class VentaCafeteria extends Venta{
     private static final double IMPUESTO_CONSUMO = 0.08;
     private double propina;
     private ArrayList<Plato> platosPedidos;
-
-    private double calcularValorNeto(ArrayList<Plato> platosPedidos) {
-        double valorNeto = 0.0;
-        for (Plato plato : platosPedidos) {
-            valorNeto += plato.getPrecio();
-        }
-        return valorNeto;
-    }
 
     private double calcularValorTotal(double valorNeto) {
         double valorPropina = valorNeto * propina;
@@ -37,19 +28,21 @@ public class VentaCafeteria extends Venta{
     }
 
     public void ordenarPlato(Mesa mesa, Plato plato) throws ArticuloInvalido{
-        mesa.ordenarPlato(plato);
-        this.platosPedidos.add(plato);
-        this.valorNeto = calcularValorNeto(this.platosPedidos);
-        this.valorTotal = calcularValorTotal(this.valorNeto);
-    }
-
-    @Override
-    public void cerrarVenta() {
-        this.valorTotal = calcularValorTotal(this.valorNeto);
+        if (!mesa.ordenarPlato(plato))
+            throw new ArticuloInvalido(plato.getNombre());
+        platosPedidos.add(plato);
+        valorNeto += plato.getPrecio();
     }
 
     public ArrayList<Plato> getPlatosPedidos() {
         return this.platosPedidos;
+    }
+
+    @Override
+    public void cerrarVenta() {
+        super.cerrarVenta();
+        this.valorTotal = calcularValorTotal(this.valorNeto);
+        this.puntosGenerados = this.valorTotal * 0.01;
     }
 
     public String imprimirFactura() {

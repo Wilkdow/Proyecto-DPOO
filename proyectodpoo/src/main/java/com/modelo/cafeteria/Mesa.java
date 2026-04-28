@@ -73,23 +73,14 @@ public class Mesa {
         this.prestamo.devolverJuego(juego);
     }
 
-    private boolean ordenarBebida(Plato plato) {
-        if (!(plato instanceof Bebida)) {
-            return false;
-        }
-        Bebida bebida = (Bebida) plato;
-        this.tieneBebidaCaliente = bebida.esEsCaliente();
+    private boolean ordenarBebida(Bebida plato) {
         return true;
     }
 
     public boolean ordenarPlato(Plato plato) {
-        if (plato == null) {
-            throw new IllegalArgumentException("El plato no puede ser nulo.");
-        }
-        if (plato instanceof Bebida) {
-            return ordenarBebida(plato);
-        }
-        return true;
+        if (plato.getClass() == Bebida.class)
+            return ordenarBebida((Bebida) plato);
+        return false;
     }
 
     public int getNumeroMesa() {

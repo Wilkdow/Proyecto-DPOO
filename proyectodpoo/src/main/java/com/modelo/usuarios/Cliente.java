@@ -5,6 +5,8 @@ import com.modelo.cafeteria.Mesa;
 import com.modelo.exceptions.MesaOcupada;
 
 public class Cliente extends UsuarioActivo{
+    public static final String TIPO_USUARIO = "CLIENTE";
+
     private Mesa mesa;
 
     public Cliente(String login, String password, Inventario inventario) {

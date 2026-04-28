@@ -64,4 +64,13 @@ public class SessionHandler {
     public Collection<Empleado> getEmpleados() {
         return empleados.values();
     }
+
+    public boolean iniciarSesion(String user, String password) {
+        Usuario usuario = clientes.get(user);
+        if (usuario == null) 
+            usuario = empleados.get(user);
+        if (usuario == null)
+            return false;
+        return usuario.checkPassword(password); 
+    }
 }

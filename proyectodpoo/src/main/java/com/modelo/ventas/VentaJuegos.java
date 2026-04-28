@@ -37,7 +37,9 @@ public class VentaJuegos extends Venta{
         this.valorNeto -= juego.getPrecio();
     }
 
+    @Override
     public void cerrarVenta() {
+        super.cerrarVenta();
         this.valorTotal = calcularValorTotal(this.valorNeto);
         this.puntosGenerados = this.valorTotal * 0.01;
     }
