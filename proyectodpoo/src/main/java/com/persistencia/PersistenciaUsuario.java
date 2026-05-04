@@ -5,16 +5,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.new_model.usuarios.Administrador;
-import com.new_model.usuarios.Cliente;
-import com.new_model.usuarios.Empleado;
-import com.new_model.usuarios.SessionHandler;
-import com.new_model.usuarios.Usuario;
+import com.model.usuarios.Cliente;
+import com.model.usuarios.Empleado;
+import com.model.usuarios.SessionHandler;
+import com.model.usuarios.Usuario;
 
 public class PersistenciaUsuario {
     public void cargarUsuarios(String rutaArchivo, SessionHandler sHandler) throws IOException {
@@ -33,7 +33,7 @@ public class PersistenciaUsuario {
         guardarClientes(sHandler, jobj);
         guardarEmpleados(sHandler, jobj);
 
-        PrintWriter writer = new PrintWriter("rutaArchivo");
+        PrintWriter writer = new PrintWriter(rutaArchivo);
         jobj.write(writer);
         writer.close();
     }
@@ -52,7 +52,8 @@ public class PersistenciaUsuario {
             String user = jCliente.getString("user");
             String password = jCliente.getString("password");
             int puntosFidelidad = jCliente.getInt("puntosFidelidad");
-            sHandler.agregarCliente(user, password, puntosFidelidad);
+            Set<String> juegosFavoritos = JSONArrayToSet(jCliente.getJSONArray("juegosFavoritos"));
+            sHandler.agregarCliente(user, password, puntosFidelidad, juegosFavoritos);
         }
     }
 
@@ -62,8 +63,10 @@ public class PersistenciaUsuario {
             JSONObject jEmpleado = jEmpleados.getJSONObject(i);
             String user = jEmpleado.getString("user");
             String password = jEmpleado.getString("password");
+            String rol = jEmpleado.getString("rol");
             int puntosFidelidad = jEmpleado.getInt("puntosFidelidad");
-            sHandler.agregarEmpleado(user, password, puntosFidelidad);
+            Set<String> juegosFavoritos = JSONArrayToSet(jEmpleado.getJSONArray("juegosFavoritos"));
+            sHandler.agregarEmpleado(user, password, rol, puntosFidelidad, juegosFavoritos);
         }
     }
 
@@ -76,6 +79,7 @@ public class PersistenciaUsuario {
         for (Cliente cliente: sHandler.getClientes()) {
             JSONObject jCliente = guardarUsuario(cliente);
             jCliente.put("puntosFidelidad", cliente.getPuntosFidelidad());
+            jCliente.put("juegosFavoritos", new JSONArray(cliente.getJuegosFavoritosString()));
             jClientes.put(jCliente);
         }
         raiz.put("clientes", jClientes);
@@ -85,7 +89,9 @@ public class PersistenciaUsuario {
         JSONArray jEmpleados = new JSONArray();
         for (Empleado empleado: sHandler.getEmpleados()) {
             JSONObject jEmpleado = guardarUsuario(empleado);
+            jEmpleado.put("rol", empleado.getRol().toString());
             jEmpleado.put("puntosFidelidad", empleado.getPuntosFidelidad());
+            jEmpleado.put("juegosFavoritos", new JSONArray(empleado.getJuegosFavoritosString()));
             jEmpleados.put(jEmpleado);
         }
         raiz.put("empleados", jEmpleados);
@@ -96,5 +102,14 @@ public class PersistenciaUsuario {
         jobj.put("user", usuario.getLogin());
         jobj.put("password", usuario.getPassword());
         return jobj;
+    }
+
+    public Set<String> JSONArrayToSet(JSONArray jArray) {
+        Set<String> set = new HashSet<>();
+        for (int i = 0; i < jArray.length(); i++) {
+            String jString = jArray.getString(i);
+            set.add(jString);
+        }
+        return set;
     }
 }
