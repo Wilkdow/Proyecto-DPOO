@@ -79,7 +79,7 @@ public class PersistenciaUsuario {
         for (Cliente cliente: sHandler.getClientes()) {
             JSONObject jCliente = guardarUsuario(cliente);
             jCliente.put("puntosFidelidad", cliente.getPuntosFidelidad());
-            jCliente.put("juegosFavoritos", new JSONArray(cliente.getJuegosFavoritosString()));
+            jCliente.put("juegosFavoritos", new JSONArray(cliente.getJuegosFavoritos()));
             jClientes.put(jCliente);
         }
         raiz.put("clientes", jClientes);
@@ -91,7 +91,7 @@ public class PersistenciaUsuario {
             JSONObject jEmpleado = guardarUsuario(empleado);
             jEmpleado.put("rol", empleado.getRol().toString());
             jEmpleado.put("puntosFidelidad", empleado.getPuntosFidelidad());
-            jEmpleado.put("juegosFavoritos", new JSONArray(empleado.getJuegosFavoritosString()));
+            jEmpleado.put("juegosFavoritos", new JSONArray(empleado.getJuegosFavoritos()));
             jEmpleados.put(jEmpleado);
         }
         raiz.put("empleados", jEmpleados);

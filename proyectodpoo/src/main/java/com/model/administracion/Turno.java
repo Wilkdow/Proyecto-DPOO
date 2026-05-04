@@ -34,6 +34,10 @@ public class Turno {
         empleadosAsignados.remove(empleado);
     }
 
+    public ArrayList<Empleado> getEmpleadosAsignados() {
+        return empleadosAsignados;
+    }
+
     public String getDia() {
         return this.dia.toString();
     }

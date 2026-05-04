@@ -1,18 +1,16 @@
 package com.model.usuarios;
 
 import com.exceptions.NoSuficientesPuntos;
-import com.model.cafeteria.Inventario;
-import com.model.productos.JuegoMesa;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public abstract class UsuarioActivo extends Usuario{
     private int puntosFidelidad;
-    private Set<JuegoMesa> juegosFavoritos;
+    private Set<String> juegosFavoritos;
 
-    public UsuarioActivo(String login, String password, Inventario inventario) {
-        super(login, password, inventario);
+    public UsuarioActivo(String login, String password) {
+        super(login, password);
         this.puntosFidelidad = 0;
         this.juegosFavoritos = new HashSet<>();
     }
@@ -21,12 +19,8 @@ public abstract class UsuarioActivo extends Usuario{
         return puntosFidelidad;
     }
 
-    public Set<String> getJuegosFavoritosString() {
-        Set<String> set = new HashSet<>();
-        for (JuegoMesa juegoMesa: juegosFavoritos) {
-            set.add(juegoMesa.getNombre());
-        }
-        return set;
+    public Set<String> getJuegosFavoritos() {
+        return juegosFavoritos;
     }
 
     public void agregarPuntosFidelidad(int puntosFidelidad) {
@@ -40,12 +34,10 @@ public abstract class UsuarioActivo extends Usuario{
     }
 
     public void agregarJuegoFavorito(String nombreJuego) {
-        JuegoMesa juegoMesa = inventario.getJuegoMesa(nombreJuego);
-        juegosFavoritos.add(juegoMesa);
+        juegosFavoritos.add(nombreJuego);
     }
 
     public void eliminarJuegoFavorito(String nombreJuego) {
-        JuegoMesa juegoMesa = inventario.getJuegoMesa(nombreJuego);
-        juegosFavoritos.remove(juegoMesa);
+        juegosFavoritos.remove(nombreJuego);
     }
 }

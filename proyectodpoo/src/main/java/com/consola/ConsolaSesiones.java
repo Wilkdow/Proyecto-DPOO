@@ -14,7 +14,7 @@ public class ConsolaSesiones {
     private void correrAplicacion() {
         try {
             inventario = new Inventario();
-            sHandler = new SessionHandler(inventario);
+            sHandler = new SessionHandler();
             sHandler.cargarInfoUsuarios(RUTA_ARCHIVO);
             ejecutarOpcionesRegistro();
             ejecutarOpcionesSesionIniciada();

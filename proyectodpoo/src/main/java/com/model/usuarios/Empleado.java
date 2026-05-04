@@ -1,7 +1,5 @@
 package com.model.usuarios;
 
-import com.model.cafeteria.Inventario;
-
 public class Empleado extends UsuarioActivo{
     public enum Roles {
         MESERO, COCINERO;
@@ -17,12 +15,25 @@ public class Empleado extends UsuarioActivo{
 
     private Roles rol;
 
-    public Empleado(String login, String password, Inventario inventario, Roles rol) {
-        super(login, password, inventario);
-        this.rol = rol;
+    public Empleado(String login, String password, int rolInt) {
+        super(login, password);
+        this.rol = Roles.fromInt(rolInt);
+    }
+
+    public Empleado(String login, String password, String rolString) {
+        super(login, password);
+        this.rol = Roles.valueOf(rolString);
     }
 
     public Roles getRol() {
         return rol;
+    }
+
+    public boolean esMesero() {
+        return rol.equals(Roles.MESERO);
+    }
+
+    public boolean esCocinero() {
+        return rol.equals(Roles.COCINERO);
     }
 }

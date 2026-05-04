@@ -18,31 +18,29 @@ public class SessionHandler {
     private Administrador administrador;
     private Map<String, Cliente> clientes;
     private Map<String, Empleado> empleados;
-    private Inventario inventario;
 
 
-    public SessionHandler(Inventario inventario) {
+    public SessionHandler() {
         this.loggedUsuario = null;
         this.administrador = null;
         this.clientes = new HashMap<>();
         this.empleados = new HashMap<>();
-        this.inventario = inventario;
     }
 
     public void setAdministrador(String user, String password) {
-        Administrador administrador = new Administrador(user, password, inventario);
+        Administrador administrador = new Administrador(user, password);
         this.administrador = administrador;
     }
 
     public void registrarCliente(String user, String password) throws UsuarioYaRegistrado {
         if (findUsuario(user) != null)
             throw new UsuarioYaRegistrado(password);
-        Cliente cliente = new Cliente(user, password, this.inventario);
+        Cliente cliente = new Cliente(user, password);
         clientes.put(user, cliente);
     }
     
     public void agregarCliente(String user, String password, int puntosFidelidad, Set<String> juegosFavoritos) {
-        Cliente cliente = new Cliente(user, password, this.inventario);
+        Cliente cliente = new Cliente(user, password);
         cliente.agregarPuntosFidelidad(puntosFidelidad);
         for (String nombreJuego: juegosFavoritos) {
             cliente.agregarJuegoFavorito(nombreJuego);
@@ -53,13 +51,12 @@ public class SessionHandler {
     public void registrarEmpleado(String user, String password, int rolNumero) throws UsuarioYaRegistrado {
         if (findUsuario(user) != null)
             throw new UsuarioYaRegistrado(password);
-        Empleado empleado = new Empleado(user, password, this.inventario, Empleado.Roles.fromInt(rolNumero));
+        Empleado empleado = new Empleado(user, password, rolNumero);
         empleados.put(user, empleado);
     }
 
     public void agregarEmpleado(String user, String password, String rolString, int puntosFidelidad, Set<String> juegosFavoritos) {
-        Empleado.Roles rol = Empleado.Roles.valueOf(rolString);
-        Empleado empleado = new Empleado(user, password, this.inventario, rol);
+        Empleado empleado = new Empleado(user, password, rolString);
         empleado.agregarPuntosFidelidad(puntosFidelidad);
         for (String nombreJuego: juegosFavoritos) {
             empleado.agregarJuegoFavorito(nombreJuego);
