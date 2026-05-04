@@ -4,24 +4,14 @@ import com.model.cafeteria.Inventario;
 
 public class Empleado extends UsuarioActivo{
     public enum Roles {
-        MESERO(1), COCINERO(2);
+        MESERO, COCINERO;
 
-        private int value;
-
-        private Roles(int value) {
-            this.value = value;
-        }
-
-        public int getValue() {
-            return value;
-        }
+        private static final Roles[] ENUM = Roles.values();
 
         public static Roles fromInt(int value) {
-            for (Roles rol: Roles.values()) {
-                if (rol.getValue() == value)
-                    return rol;
-            }
-            throw new IllegalArgumentException("Valor inválido: " + value);
+            if (value < 1 || value > ENUM.length)
+                throw new IllegalArgumentException("Value inválido para Roles: " + value);
+            return ENUM[value - 1];
         }
     }
 

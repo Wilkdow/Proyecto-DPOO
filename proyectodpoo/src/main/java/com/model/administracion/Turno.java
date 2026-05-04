@@ -1,20 +1,25 @@
 package com.model.administracion;
 
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import com.model.usuarios.Empleado;
 
 public class Turno {
-    public enum DiasSemana {
-        LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
-    }
-        
-    private DiasSemana dia;
+    private DayOfWeek dia;
     private ArrayList<Empleado> empleadosAsignados;
-    private String horaInicio;
-    private String horaFin;
+    private int horaInicio;
+    private int horaFin;
 
-    public Turno(DiasSemana dia, String horaInicio, String horaFin) {
+    public Turno(int dia, int horaInicio, int horaFin) {
+        this.dia = DayOfWeek.of(dia);
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
+        this.empleadosAsignados = new ArrayList<>();
+    }
+
+    public Turno(DayOfWeek dia, int horaInicio, int horaFin) {
         this.dia = dia;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
@@ -29,11 +34,38 @@ public class Turno {
         empleadosAsignados.remove(empleado);
     }
 
-    public String getHoraInicio() {
+    public String getDia() {
+        return this.dia.toString();
+    }
+
+    public int getHoraInicio() {
         return horaInicio;
     }
 
-    public String getHoraFin() {
+    public int getHoraFin() {
         return horaFin;
+    }
+
+    public boolean estaEmpleadoEnTurno(Empleado empleado) {
+        return empleadosAsignados.contains(empleado);
+    }
+
+    public boolean esTurnoValido() {
+        LocalDateTime localTime = LocalDateTime.now();
+        DayOfWeek day = localTime.getDayOfWeek();
+        int hour = localTime.getHour();
+        if (day != dia)
+            return false;
+        if (horaInicio > hour || horaFin < hour)
+            return false;
+        return true;
+    }
+
+    public boolean esTurnoValido(DayOfWeek day, int hour) {
+        if (day != dia)
+            return false;
+        if (horaInicio > hour || horaFin < hour)
+            return false;
+        return true;
     }
 }
