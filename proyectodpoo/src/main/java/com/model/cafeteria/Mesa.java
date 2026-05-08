@@ -1,6 +1,8 @@
 package com.model.cafeteria;
 
-import com.exceptions.MesaOcupada;
+import com.exceptions.orden_fallida.JuegoOcupado;
+import com.exceptions.orden_fallida.JuegosPrestadosExcededidos;
+import com.exceptions.orden_fallida.MesaOcupada;
 import com.model.productos.JuegoMesaPrestamo;
 import com.model.usuarios.Usuario;
 
@@ -8,7 +10,6 @@ public class Mesa {
     private int numeroMesa;
     private int numeroPersonas;
     private boolean hayNinios;
-    private boolean estaOcupada;
     private boolean tieneBebidaCaliente;
     private Usuario clienteAsignado;
     private Prestamo prestamo;
@@ -17,14 +18,13 @@ public class Mesa {
         this.numeroMesa = numeroMesa;
         this.numeroPersonas = 0;
         this.hayNinios = false;
-        this.estaOcupada = false;
         this.clienteAsignado = null;
         this.tieneBebidaCaliente = false;
         this.prestamo = null;
     }
 
     public void reservarMesa(Usuario cliente, int numeroPersonas, boolean hayNinios) throws MesaOcupada {
-        if (estaOcupada) {
+        if (estaOcupada()) {
             throw new MesaOcupada(String.valueOf(numeroMesa));
         }
 
@@ -34,16 +34,14 @@ public class Mesa {
     }
 
     public void liberarMesa() {
-        this.clienteAsignado = null;
+        cerrarPrestamo();
         this.numeroPersonas = 0;
         this.hayNinios = false;
-        this.estaOcupada = false;
+        this.tieneBebidaCaliente = false;
+        this.clienteAsignado = null;
     }
 
     public void iniciarPrestamo() {
-        if (!estaOcupada) {
-            throw new IllegalStateException("La mesa no está ocupada.");
-        }
         this.prestamo = new Prestamo(this);
     }
 
@@ -55,18 +53,18 @@ public class Mesa {
         this.prestamo = null;
     }
 
-    public void prestarJuego(JuegoMesaPrestamo juego) throws Exception {
+    public void prestarJuego(JuegoMesaPrestamo juego) throws JuegosPrestadosExcededidos, JuegoOcupado {
         if (this.prestamo == null) {
             throw new IllegalStateException("No hay un préstamo activo para esta mesa.");
         }
         this.prestamo.prestarJuego(juego);
     }
 
-    public void devolverJuego(JuegoMesaPrestamo juego) {
+    public void devolverJuego(int juegoIndice) {
         if (this.prestamo == null) {
             throw new IllegalStateException("No hay un préstamo activo para esta mesa.");
         }
-        this.prestamo.devolverJuego(juego);
+        this.prestamo.devolverJuego(juegoIndice);
     }
 
     public int getNumeroMesa() {
@@ -82,7 +80,7 @@ public class Mesa {
     }
 
     public boolean estaOcupada() {
-        return estaOcupada;
+        return clienteAsignado != null;
     }
 
     public Usuario getClienteAsignado() {
@@ -101,6 +99,10 @@ public class Mesa {
         if (prestamo == null)
             return false;
         return prestamo.hayJuegoMesaAccion();
+    }
+
+    public boolean hayPrestamo() {
+        return prestamo != null;
     }
 }
 

@@ -27,4 +27,16 @@ public class Historial {
     public void agregarSolicitud(Solicitud solicitud) {
         this.historialSolicitudes.add(solicitud);
     }
+
+    public ArrayList<Venta> getHistorialVentas() {
+        return historialVentas;
+    }
+
+    public ArrayList<Prestamo> getHistorialPrestamos() {
+        return historialPrestamos;
+    }
+
+    public ArrayList<Solicitud> getHistorialSolicitudes() {
+        return historialSolicitudes;
+    }
 }

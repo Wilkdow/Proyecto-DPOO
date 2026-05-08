@@ -14,7 +14,7 @@ public class Bebida extends Plato{
         return esAlcoholica;
     }
 
-    public boolean esEsCaliente() {
+    public boolean esCaliente() {
         return esCaliente;
     }
 }

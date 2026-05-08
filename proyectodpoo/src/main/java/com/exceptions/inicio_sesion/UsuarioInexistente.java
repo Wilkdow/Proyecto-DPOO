@@ -1,10 +1,10 @@
 package com.exceptions.inicio_sesion;
 
-public class UsuarioInexistente extends Exception{
+public class UsuarioInexistente extends ErrorIniciandoSesion{
     private String usuario;
 
     public UsuarioInexistente(String usuario) {
-        super(" ");
+        super();
         this.usuario = usuario;
     }
 

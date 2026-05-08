@@ -20,14 +20,14 @@ public abstract class JuegoMesa {
     private String estado;
     private boolean esDificil;
 
-    public JuegoMesa(String nombre, int anioPublicacion, String empresaMatriz, int minJugadores, int maxJugadores, Edades restriccionEdad, Generos genero, String estado, boolean esDificil) {
+    public JuegoMesa(String nombre, int anioPublicacion, String empresaMatriz, int minJugadores, int maxJugadores, String restriccionEdad, String genero, String estado, boolean esDificil) {
         this.nombre = nombre;
         this.anioPublicacion = anioPublicacion;
         this.empresaMatriz = empresaMatriz;
         this.minJugadores = minJugadores;
         this.maxJugadores = maxJugadores;
-        this.restriccionEdad = restriccionEdad;
-        this.genero = genero;
+        this.restriccionEdad = Edades.valueOf(restriccionEdad);
+        this.genero = Generos.valueOf(genero);
         this.estado = estado;
         this.esDificil = esDificil;
     }
@@ -36,20 +36,27 @@ public abstract class JuegoMesa {
         return nombre;
     }
 
+    public int getAnioPublicacion() {
+        return this.anioPublicacion;
+    }
+
+    public String getEmpresaMatriz() {
+        return this.empresaMatriz;
+    }
+
     public int getMinJugadores() {
-        return minJugadores;
+        return this.minJugadores;
     }
 
     public int getMaxJugadores() {
-        return maxJugadores;
+        return this.maxJugadores;
+    }
+    public String getRestriccionEdad() {
+        return restriccionEdad.toString();
     }
 
-    public Edades getRestriccionEdad() {
-        return restriccionEdad;
-    }
-
-    public Generos getGenero() {
-        return genero;
+    public String getGenero() {
+        return genero.toString();
     }
 
     public String getEstado() {
@@ -57,7 +64,7 @@ public abstract class JuegoMesa {
     }
 
     public boolean esDificil() {
-        return esDificil;
+        return this.esDificil;
     }
 
     public boolean esAccion() {

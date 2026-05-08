@@ -3,12 +3,11 @@ package com.model.ventas;
 import java.time.LocalDateTime;
 
 import com.model.usuarios.Empleado;
-import com.model.usuarios.Usuario;
+import com.model.usuarios.UsuarioActivo;
 
 public abstract class Venta {
-    private int id;
     private LocalDateTime fecha;
-    private Usuario comprador;
+    private UsuarioActivo comprador;
     protected double valorNeto;
     protected double valorTotal;
     protected double puntosGenerados;
@@ -19,26 +18,25 @@ public abstract class Venta {
         return valorNeto * descuentoPorcentaje + descuentoPuntos;
     }
 
-    public Venta(Usuario comprador, double descuentoPuntos) {
-        
+    public Venta(UsuarioActivo comprador) {
         this.comprador = comprador;
-        this.descuentoPuntos = descuentoPuntos;
+        this.descuentoPuntos = 0;
         this.descuentoPorcentaje = (comprador.getClass() == Empleado.class) ? 0.2 : 0.0;
+        this.puntosGenerados = 0;
+        this.valorNeto = 0.0;
+        this.valorTotal = 0.0;
     }
 
-    public void cerrarVenta() {
+    protected void cerrarVenta(int puntosUtilizados) {
         this.fecha = LocalDateTime.now();
-    }
-
-    public int getId() {
-        return this.id;
+        this.descuentoPuntos = puntosUtilizados;
     }
 
     public LocalDateTime getFecha() {
         return this.fecha;
     }
 
-    public Usuario getComprador() {
+    public UsuarioActivo getComprador() {
         return this.comprador;
     }
 

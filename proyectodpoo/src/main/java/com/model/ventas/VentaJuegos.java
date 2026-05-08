@@ -3,7 +3,7 @@ package com.model.ventas;
 import java.util.ArrayList;
 
 import com.model.productos.JuegoMesaVenta;
-import com.model.usuarios.Usuario;
+import com.model.usuarios.UsuarioActivo;
 
 public class VentaJuegos extends Venta{
     private static final double IVA = 0.19;
@@ -13,14 +13,9 @@ public class VentaJuegos extends Venta{
         return (valorNeto - calcularDescuentoTotal(valorNeto)) * (1 + IVA);
     }
     
-    public VentaJuegos(Usuario comprador, double puntosUtilizados, boolean tieneReferido) {
-        super(comprador, puntosUtilizados);
+    public VentaJuegos(UsuarioActivo comprador) {
+        super(comprador);
         this.juegosMesaVendidos = new ArrayList<>();
-
-        this.valorNeto = 0.0;
-        this.valorTotal = 0.0;
-        this.descuentoPorcentaje = (tieneReferido) ? 0.1 : 0.0;
-        this.puntosGenerados = 0.0;
     }
 
     public void agregarJuegoMesaVenta(JuegoMesaVenta juego) {
@@ -35,11 +30,14 @@ public class VentaJuegos extends Venta{
         this.valorNeto -= juego.getPrecio();
     }
 
-    @Override
-    public void cerrarVenta() {
-        super.cerrarVenta();
+    public void cerrarVenta(int puntosUtilizados, boolean tieneReferido) {
+        super.cerrarVenta(puntosUtilizados);
         this.valorTotal = calcularValorTotal(this.valorNeto);
+        
+        this.descuentoPorcentaje = tieneReferido ? 0.1: 0.0;
         this.puntosGenerados = this.valorTotal * 0.01;
+
+        this.getComprador().agregarPuntosFidelidad((int) this.puntosGenerados);
     }
 
     public ArrayList<JuegoMesaVenta> getJuegosMesaVendidos() {

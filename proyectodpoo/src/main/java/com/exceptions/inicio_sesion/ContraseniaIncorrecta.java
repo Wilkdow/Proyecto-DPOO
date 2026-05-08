@@ -1,10 +1,10 @@
 package com.exceptions.inicio_sesion;
 
-public class ContraseniaIncorrecta extends Exception{
+public class ContraseniaIncorrecta extends ErrorIniciandoSesion {
     private String user;
 
     public ContraseniaIncorrecta(String user) {
-        super("");
+        super();
         this.user = user;
     }
 

@@ -1,6 +1,7 @@
 package com.model.cafeteria;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -74,7 +75,27 @@ public class Inventario {
         menu.put(plato.getNombre(), plato);
     }
 
+    public void agregarCodigoDescuento(String codigo) {
+        codigosDescuento.add(codigo);
+    }
+
     public boolean esCodigoDescuentoValido(String codigoDescuento) {
         return this.codigosDescuento.contains(codigoDescuento);
+    }
+
+    public Collection<JuegoMesaPrestamo> getJuegosMesaPrestamo() {
+        return juegosMesaPrestamo.values();
+    }
+
+    public Collection<JuegoMesaVenta> getJuegosMesaVenta() {
+        return juegosMesaVenta.values();
+    }
+
+    public Collection<Plato> getMenu() {
+        return menu.values();
+    }
+
+    public ArrayList<String> getCodigosDescuento() {
+        return codigosDescuento;
     }
 }

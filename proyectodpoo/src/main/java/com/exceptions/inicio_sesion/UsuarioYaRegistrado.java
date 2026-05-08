@@ -1,10 +1,10 @@
 package com.exceptions.inicio_sesion;
 
-public class UsuarioYaRegistrado extends Exception{
+public class UsuarioYaRegistrado extends ErrorIniciandoSesion{
     private String usuario;
 
     public UsuarioYaRegistrado(String usuario) {
-        super(" ");
+        super();
         this.usuario = usuario;
     }
 

@@ -3,7 +3,7 @@ package com.model.ventas;
 import java.util.ArrayList;
 
 import com.model.productos.Plato;
-import com.model.usuarios.Usuario;
+import com.model.usuarios.UsuarioActivo;
 
 public class VentaCafeteria extends Venta{
     private static final double IMPUESTO_CONSUMO = 0.08;
@@ -15,13 +15,10 @@ public class VentaCafeteria extends Venta{
         return calcularDescuentoTotal(valorNeto) * (1 + IMPUESTO_CONSUMO) + valorPropina ;
     }
 
-    public VentaCafeteria(Usuario comprador, double puntosUtilizados) {
-        super(comprador, puntosUtilizados);
+    public VentaCafeteria(UsuarioActivo comprador) {
+        super(comprador);
         this.platosPedidos = new ArrayList<>();
-
-        this.valorNeto = 0.0;
-        this.valorTotal = 0.0;
-        this.puntosGenerados = 0.0;
+        this.propina = 0;
     }
 
     public void ordenarPlato(Plato plato) {
@@ -33,11 +30,12 @@ public class VentaCafeteria extends Venta{
         return this.platosPedidos;
     }
 
-    @Override
-    public void cerrarVenta() {
-        super.cerrarVenta();
+    public void cerrarVenta(int puntosUtilizados, double propina) {
+        super.cerrarVenta(puntosUtilizados);
+        this.propina = propina;
         this.valorTotal = calcularValorTotal(this.valorNeto);
         this.puntosGenerados = this.valorTotal * 0.01;
+        this.getComprador().agregarPuntosFidelidad((int) this.puntosGenerados);
     }
 
     public String imprimirFactura() {

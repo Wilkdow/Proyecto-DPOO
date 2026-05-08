@@ -89,7 +89,7 @@ public class PersistenciaUsuario {
         JSONArray jEmpleados = new JSONArray();
         for (Empleado empleado: sHandler.getEmpleados()) {
             JSONObject jEmpleado = guardarUsuario(empleado);
-            jEmpleado.put("rol", empleado.getRol().toString());
+            jEmpleado.put("rol", empleado.getRol());
             jEmpleado.put("puntosFidelidad", empleado.getPuntosFidelidad());
             jEmpleado.put("juegosFavoritos", new JSONArray(empleado.getJuegosFavoritos()));
             jEmpleados.put(jEmpleado);

@@ -2,18 +2,15 @@ package com.consola;
 
 import java.io.IOException;
 
-import com.model.cafeteria.Inventario;
 import com.model.usuarios.SessionHandler;
 
 public class ConsolaSesiones {
     private static final String RUTA_ARCHIVO = "data/info_usuarios.json";
 
     private SessionHandler sHandler;
-    private Inventario inventario;
 
-    private void correrAplicacion() {
+    private void correrInicioSesion() {
         try {
-            inventario = new Inventario();
             sHandler = new SessionHandler();
             sHandler.cargarInfoUsuarios(RUTA_ARCHIVO);
             ejecutarOpcionesRegistro();
@@ -43,7 +40,7 @@ public class ConsolaSesiones {
 
         switch (opcion) {
             case 1:
-                
+                entrarAlSistema();
                 break;
             case 2:
                 cambiarContrasenia();
@@ -93,6 +90,11 @@ public class ConsolaSesiones {
         }
     }
 
+    public void entrarAlSistema() {
+        
+        return;
+    }
+
     public void cambiarContrasenia() {
         String newPassword = ConsolaBasica.pedirCadenaAlUsuario("Ingrese su nueva contraseña");
         sHandler.cambiarContrasenia(newPassword);
@@ -101,6 +103,6 @@ public class ConsolaSesiones {
 
     public static void main(String[] args) {
         ConsolaSesiones consola = new ConsolaSesiones();
-        consola.correrAplicacion();
+        consola.correrInicioSesion();
     }
 }

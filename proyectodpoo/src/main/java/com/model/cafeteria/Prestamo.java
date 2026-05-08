@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import com.exceptions.orden_fallida.ArticuloInvalido;
+import com.exceptions.orden_fallida.JuegoOcupado;
 import com.exceptions.orden_fallida.JuegosPrestadosExcededidos;
 import com.model.productos.JuegoMesaPrestamo;
 import com.model.usuarios.Usuario;
@@ -25,17 +26,16 @@ public class Prestamo {
         this.mesa = mesa;
     }
 
-    public void prestarJuego(JuegoMesaPrestamo juego) throws Exception {
+    public void prestarJuego(JuegoMesaPrestamo juego) throws JuegosPrestadosExcededidos, JuegoOcupado {
         if (juegosPrestados.size() >= 2) {
             throw new JuegosPrestadosExcededidos(juegosPrestados.get(0).getNombre(), juegosPrestados.get(1).getNombre());
         }
-        if (juego.esAccion() && mesa.tieneBebidaCaliente())
-            throw new ArticuloInvalido(juego.getNombre());
         juego.prestar();
         juegosPrestados.add(juego);
     }
 
-    public void devolverJuego(JuegoMesaPrestamo juego) {
+    public void devolverJuego(int juegoIndice) {
+        JuegoMesaPrestamo juego = juegosPrestados.get(juegoIndice);
         juego.devolver();
         juegosPrestados.remove(juego);
     }
@@ -49,8 +49,8 @@ public class Prestamo {
     }
 
     public void cerrarPrestamo() {
-        for (JuegoMesaPrestamo juego : juegosPrestados) {
-            devolverJuego(juego);
+        for (int i = 0; i > juegosPrestados.size(); i++) {
+            devolverJuego(i);
         }
         this.devuelto = true;
         this.fechaDevolucion = LocalDate.now();
