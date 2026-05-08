@@ -20,12 +20,24 @@ public class Historial {
         this.historialVentas.add(venta.imprimirFactura());
     }
 
+    public void agregarVenta(String factura) {
+        this.historialVentas.add(factura);
+    }
+
     public void agregarPrestamo(Prestamo prestamo) {
         this.historialPrestamos.add(prestamo.imprimirFactura());
     }
 
+    public void agregarPrestamo(String factura) {
+        this.historialPrestamos.add(factura);
+    }
+
     public void agregarSolicitud(Solicitud solicitud) {
         this.historialSolicitudes.add(solicitud.imprimirResumen());
+    }
+
+    public void agregarSolicitud(String factura) {
+        this.historialSolicitudes.add(factura);
     }
 
     public ArrayList<String> getHistorialVentas() {
