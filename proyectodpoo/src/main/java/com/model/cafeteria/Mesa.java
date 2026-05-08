@@ -5,6 +5,7 @@ import com.exceptions.orden_fallida.JuegosPrestadosExcededidos;
 import com.exceptions.orden_fallida.MesaOcupada;
 import com.model.productos.JuegoMesaPrestamo;
 import com.model.usuarios.Usuario;
+import com.model.ventas.Prestamo;
 
 public class Mesa {
     private int numeroMesa;

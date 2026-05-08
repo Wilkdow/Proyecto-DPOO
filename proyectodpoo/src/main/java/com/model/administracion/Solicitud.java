@@ -40,4 +40,13 @@ public abstract class Solicitud {
     public boolean fueAprobada() {
         return this.aprobada;
     }
+
+    public String imprimirResumen() {
+        StringBuilder resumen = new StringBuilder();
+        resumen.append("Resumen solicitud");
+        resumen.append(String.format("Empleado que solicita: ",this.empleadoSolicita));
+        resumen.append(this.aprobada ? "Aprobada": this.revisada ? "En revisión": "Sin revisar");
+        resumen.append(String.format("Tipo de solicitud: ", (this instanceof SugerenciaPlato) ? "Sugerencia de Plato": "Cambio de Turno"));
+        return resumen.toString();
+    }
 }

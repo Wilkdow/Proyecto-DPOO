@@ -9,7 +9,5 @@ public class CentralPersistencia {
         return new PersistenciaInventario();
     }
 
-    public static PersistenciaHistorial getPersistenciaHistorial() {
-        return new PersistenciaHistorial();
-    }
+    
 }
