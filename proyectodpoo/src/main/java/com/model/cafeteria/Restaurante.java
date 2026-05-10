@@ -3,26 +3,36 @@ package com.model.cafeteria;
 import java.util.ArrayList;
 
 import com.exceptions.RestauranteLleno;
+import com.model.administracion.Solicitud;
 import com.model.administracion.Turno;
 import com.model.usuarios.Cliente;
 import com.model.usuarios.Empleado;
 import com.model.usuarios.Usuario;
 
+
 public class Restaurante {
     private static int capacidadMaxima = 80;
     
+    private Usuario loggedUser;
     private int genteEnRestaurante;
     private Inventario inventario;
     private ArrayList<Cliente> clientes;
+    private ArrayList<Solicitud> solicitudes;
     private Mesa[] mesas;
     private Turno turnoActivo;
 
-    public Restaurante(int cantidadMesas) {
+    public Restaurante(Usuario loggedUser, Inventario inventario, int cantidadMesas) {
         this.genteEnRestaurante = 0;
         this.clientes = new ArrayList<>();
-        this.inventario = new Inventario();
+        this.inventario = inventario;
+        this.solicitudes = new ArrayList<>();
         this.mesas = inicializarMesas(cantidadMesas);
         this.turnoActivo = null;
+        this.loggedUser = loggedUser;
+    }
+
+    public ArrayList<Solicitud> getSolicitudes() {
+        return solicitudes;
     }
 
     public Inventario getInventario() {
@@ -48,10 +58,14 @@ public class Restaurante {
         return capacidadMaxima - genteEnRestaurante;
     }
 
-    public void agregarCapacidad(int numeroPersonas) throws RestauranteLleno {
+    public void agregarGenteAlRestaurante(int numeroPersonas) throws RestauranteLleno {
         if (numeroPersonas > getCuposDisponibles())
             throw new RestauranteLleno(capacidadMaxima, getCuposDisponibles());
         this.genteEnRestaurante += numeroPersonas;
+    }
+
+    public void agregarSolicitud(Solicitud solicitud) {
+        solicitudes.add(solicitud);
     }
 
     public void asignarTurno(Turno turno) {

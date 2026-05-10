@@ -52,6 +52,8 @@ public abstract class UsuarioActivo extends Usuario{
     }
 
     public void comprarJuego(JuegoMesaVenta juegoMesa) {
+        if (ventaJuegos == null)
+            abrirCuentaJuegosMesa();
         ventaJuegos.agregarJuegoMesaVenta(juegoMesa);
     }
 

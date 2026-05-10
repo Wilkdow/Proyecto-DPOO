@@ -28,4 +28,11 @@ public class JuegoMesaVenta extends JuegoMesa{
     public void reabastecer(int cantidad) {
         stock += cantidad;
     }
+
+    @Override
+    public String imprimirInformacion() {
+        return super.imprimirInformacion() + 
+                "Precio: " + this.precio +
+                "Stock: " + this.stock;
+    }
 }

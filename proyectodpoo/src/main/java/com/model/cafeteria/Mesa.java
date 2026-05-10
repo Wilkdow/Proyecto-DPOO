@@ -1,5 +1,8 @@
 package com.model.cafeteria;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import com.exceptions.orden_fallida.JuegoOcupado;
 import com.exceptions.orden_fallida.JuegosPrestadosExcededidos;
 import com.exceptions.orden_fallida.MesaOcupada;
@@ -55,9 +58,8 @@ public class Mesa {
     }
 
     public void prestarJuego(JuegoMesaPrestamo juego) throws JuegosPrestadosExcededidos, JuegoOcupado {
-        if (this.prestamo == null) {
-            throw new IllegalStateException("No hay un préstamo activo para esta mesa.");
-        }
+        if (!hayPrestamo())
+            iniciarPrestamo();
         this.prestamo.prestarJuego(juego);
     }
 
@@ -104,6 +106,12 @@ public class Mesa {
 
     public boolean hayPrestamo() {
         return prestamo != null;
+    }
+
+    public ArrayList<JuegoMesaPrestamo> getJuegosPrestado() {
+        if (prestamo == null)
+            return null;
+        return prestamo.getJuegosEnPrestamo();
     }
 }
 

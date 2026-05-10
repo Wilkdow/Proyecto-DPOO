@@ -39,4 +39,11 @@ public class JuegoMesaPrestamo extends JuegoMesa{
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
+
+    @Override
+    public String imprimirInformacion() {
+        return super.imprimirInformacion() +
+                "Veces Prestado: " + this.vecesPrestado +
+                "Disponible: " + this.disponible;
+    }
 }

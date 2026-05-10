@@ -1,24 +1,21 @@
 package com.consola;
 
-import java.io.IOException;
-
 import com.model.usuarios.SessionHandler;
 
-public class ConsolaSesiones {
-    private static final String RUTA_ARCHIVO = "data/info_usuarios.json";
-
+public class ConsolaSesiones extends Consola {
     private SessionHandler sHandler;
 
-    private void correrInicioSesion() {
-        try {
-            sHandler = new SessionHandler();
-            sHandler.cargarInfoUsuarios(RUTA_ARCHIVO);
-            ejecutarOpcionesRegistro();
+    public ConsolaSesiones(SessionHandler sHandler) {
+        super();
+        this.sHandler = sHandler;
+    }
+
+    public boolean correrConsola() {
+
+        ejecutarOpcionesRegistro();
+        if (!salirAplicacion)
             ejecutarOpcionesSesionIniciada();
-            sHandler.guardarInfoUsuarios(RUTA_ARCHIVO);
-        } catch( IOException e ) {
-            e.printStackTrace();
-        }
+        return salirAplicacion;
     }
 
     private void ejecutarOpcionesRegistro() {
@@ -30,7 +27,9 @@ public class ConsolaSesiones {
                 break;
             case 2:
                 ejecutarRegistro();
+                break;
             default:
+                salirAplicacion = true;
                 break;
         }
     }
@@ -40,13 +39,14 @@ public class ConsolaSesiones {
 
         switch (opcion) {
             case 1:
-                entrarAlSistema();
+                salirAplicacion = false;
                 break;
             case 2:
                 cambiarContrasenia();
                 ejecutarOpcionesSesionIniciada();
                 break;
             default:
+                salirAplicacion = true;
                 break;
         }
     }
@@ -90,19 +90,9 @@ public class ConsolaSesiones {
         }
     }
 
-    public void entrarAlSistema() {
-        
-        return;
-    }
-
     public void cambiarContrasenia() {
         String newPassword = ConsolaBasica.pedirCadenaAlUsuario("Ingrese su nueva contraseña");
         sHandler.cambiarContrasenia(newPassword);
         System.out.println("Contraseña cambiada");
-    }
-
-    public static void main(String[] args) {
-        ConsolaSesiones consola = new ConsolaSesiones();
-        consola.correrInicioSesion();
     }
 }

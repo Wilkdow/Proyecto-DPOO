@@ -36,7 +36,7 @@ public class Prestamo {
     }
 
     public void devolverJuego(int juegoIndice) {
-        JuegoMesaPrestamo juego = juegosEnPrestamo.get(juegoIndice);
+        JuegoMesaPrestamo juego = juegosEnPrestamo.get(juegoIndice - 1);
         juego.devolver();
         juegosEnPrestamo.remove(juego);
     }
@@ -55,6 +55,10 @@ public class Prestamo {
         }
         this.cerrado = true;
         this.fechaDevolucion = LocalDate.now();
+    }
+
+    public JuegoMesaPrestamo getJuegoMesaPrestamo(int indice) {
+        return juegosEnPrestamo.get(indice);
     }
 
     public ArrayList<JuegoMesaPrestamo> getJuegosEnPrestamo() {

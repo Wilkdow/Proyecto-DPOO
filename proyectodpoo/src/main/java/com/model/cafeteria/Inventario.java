@@ -24,30 +24,17 @@ public class Inventario {
     }
 
     public JuegoMesaPrestamo getJuegoMesaPrestamo(String nombre) {
-        if (!juegosMesaPrestamo.containsKey(nombre)) {
-            throw new IllegalArgumentException("No se encontró el juego de mesa para préstamo: " + nombre);
-        }
         return juegosMesaPrestamo.get(nombre);
     }
 
     public JuegoMesaVenta getJuegoMesaVenta(String nombre) {
-        if (!juegosMesaVenta.containsKey(nombre)) {
-            throw new IllegalArgumentException("No se encontró el juego de mesa para venta: " + nombre);
-        }
         return juegosMesaVenta.get(nombre);
     }
 
     public JuegoMesa getJuegoMesa(String nombre) {
-        JuegoMesa juegoMesa;
-        if (juegosMesaPrestamo.containsKey(nombre)) {
-            juegoMesa = juegosMesaPrestamo.get(nombre);
-        }
-        else if (juegosMesaVenta.containsKey(nombre)) {
+        JuegoMesa juegoMesa = juegosMesaPrestamo.get(nombre);
+        if (juegoMesa == null)
             juegoMesa = juegosMesaVenta.get(nombre);
-        }
-        else {
-            throw new IllegalArgumentException("No se encontró el juego de mesa: " + nombre);
-        }
         return juegoMesa;
     }
 
@@ -98,4 +85,23 @@ public class Inventario {
     public ArrayList<String> getCodigosDescuento() {
         return codigosDescuento;
     }
+
+    public String getCatalogoJuegosPrestamo() {
+        StringBuilder catalogo = new StringBuilder();
+        catalogo.append("Juegos para prestamo:\n");
+        for (JuegoMesa juego: juegosMesaPrestamo.values()) {
+            catalogo.append(juego.imprimirInformacion() + "\n");
+        }
+        return catalogo.toString();
+    }
+
+    public String getCatalogoJuegosVenta() {
+        StringBuilder catalogo = new StringBuilder();
+        catalogo.append("Juegos para venta:\n");
+        for (JuegoMesa juego: juegosMesaVenta.values()) {
+            catalogo.append(juego.imprimirInformacion() + "\n");
+        }
+        return catalogo.toString();
+    }
 }
+

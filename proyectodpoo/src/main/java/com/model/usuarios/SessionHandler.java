@@ -86,6 +86,14 @@ public class SessionHandler {
         return empleados.values();
     }
 
+    public Usuario getLoggedUser() {
+        return loggedUsuario;
+    }
+
+    public String getTipoUsuario() {
+        return loggedUsuario.getClass().getSimpleName();
+    }
+
     public boolean hayUsuarioLoggeado() {
         return this.loggedUsuario != null;
     }

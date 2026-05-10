@@ -1,5 +1,7 @@
 package com.model.usuarios;
 
+import java.util.ArrayList;
+
 import com.exceptions.RestauranteLleno;
 import com.exceptions.orden_fallida.ArticuloInvalido;
 import com.exceptions.orden_fallida.JuegoOcupado;
@@ -13,7 +15,7 @@ import com.model.productos.JuegoMesaPrestamo;
 import com.model.productos.Plato;
 
 public class Cliente extends UsuarioActivo{
-    public static final String TIPO_USUARIO = "CLIENTE";
+    public static final String TIPO_USUARIO = Cliente.class.getSimpleName();
 
     private Mesa mesa;
     
@@ -22,10 +24,25 @@ public class Cliente extends UsuarioActivo{
         this.mesa = null;
     }
 
+    public boolean tieneMesa() {
+        return mesa != null;
+    }
+
+    public int getNumeroMesa() {
+        return mesa.getNumeroMesa();
+    }
+
     public void reservarMesa(Restaurante restaurante, int numeroPersonas, boolean hayNinios) throws MesaOcupada, RestauranteLleno {
-        restaurante.agregarCapacidad(numeroPersonas);
+        restaurante.agregarGenteAlRestaurante(numeroPersonas);
         this.mesa = restaurante.getMesaVacia();
         this.mesa.reservarMesa(null, numeroPersonas, hayNinios);
+    }
+
+    public void liberarMesa() {
+        if (this.mesa == null) 
+            return;
+        this.mesa.liberarMesa();
+        this.mesa = null;
     }
 
     @Override
@@ -39,11 +56,16 @@ public class Cliente extends UsuarioActivo{
         super.ordenarPlato(plato);
     }
 
+    public String[] getJuegosPrestadoStrings() {
+        if (!mesa.hayPrestamo())
+            return new String[0];
+        ArrayList<JuegoMesaPrestamo> juegos = mesa.getJuegosPrestado();
+        return new String[] {juegos.get(0).getNombre(), juegos.get(1).getNombre()};
+    }
+
     public void pedirJuegoPrestado(JuegoMesaPrestamo juegoMesa) throws ArticuloInvalido, JuegosPrestadosExcededidos, JuegoOcupado {
         if (!checkCompatibilidad(juegoMesa, mesa))
             throw new ArticuloInvalido(juegoMesa.getNombre());
-        if (!mesa.hayPrestamo())
-            mesa.iniciarPrestamo();
         mesa.prestarJuego(juegoMesa);
     }
 
