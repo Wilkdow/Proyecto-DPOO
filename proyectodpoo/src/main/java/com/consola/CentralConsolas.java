@@ -3,6 +3,7 @@ package com.consola;
 import java.io.IOException;
 
 import com.model.cafeteria.Inventario;
+import com.model.cafeteria.Restaurante;
 import com.model.usuarios.SessionHandler;
 
 public class CentralConsolas {
@@ -10,13 +11,13 @@ public class CentralConsolas {
     private static final String INFO_USUARIOS = "info_usuarios.json";
 
     private static SessionHandler sHandler;
-    private static Inventario inventario;
+    private static Restaurante restaurante;
 
     private static void setUp() {
         try {
             sHandler = new SessionHandler();
             sHandler.cargarInfoUsuarios(RUTA_DATA + INFO_USUARIOS);
-            inventario = new Inventario();
+            restaurante = new Restaurante();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -28,7 +29,7 @@ public class CentralConsolas {
         boolean salirAplicacion = consola.correrConsola();
         if (salirAplicacion)
             return;
-        consola = Consola.getTipoConsola(sHandler.getLoggedUser(), inventario);
+        consola = Consola.getTipoConsola(sHandler.getLoggedUser(), restaurante);
         consola.correrConsola();
     }
 }

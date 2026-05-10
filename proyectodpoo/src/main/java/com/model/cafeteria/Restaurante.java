@@ -12,6 +12,7 @@ import com.model.usuarios.Usuario;
 
 public class Restaurante {
     private static int capacidadMaxima = 80;
+    private static int cantidadMesas = 20;
     
     private Usuario loggedUser;
     private int genteEnRestaurante;
@@ -21,14 +22,18 @@ public class Restaurante {
     private Mesa[] mesas;
     private Turno turnoActivo;
 
-    public Restaurante(Usuario loggedUser, Inventario inventario, int cantidadMesas) {
+    public Restaurante() {
         this.genteEnRestaurante = 0;
         this.clientes = new ArrayList<>();
-        this.inventario = inventario;
+        this.inventario = new Inventario();
         this.solicitudes = new ArrayList<>();
         this.mesas = inicializarMesas(cantidadMesas);
         this.turnoActivo = null;
-        this.loggedUser = loggedUser;
+        this.loggedUser = null;
+    }
+
+    public void logUser(Usuario usuario) {
+        this.loggedUser = usuario;
     }
 
     public ArrayList<Solicitud> getSolicitudes() {
